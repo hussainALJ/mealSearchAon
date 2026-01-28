@@ -1,7 +1,9 @@
 .meals {
     position: absolute;
-    top: 100%;
+    top: 200%;
     background-color: white;
-    height: 100vh;
+    min-height: 100vh;
     width: -webkit-fill-available;
+    box-shadow: 0 -25px 50px #000;
+    border-radius: 25px 25px 0 0;
 }

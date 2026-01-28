@@ -1,9 +1,28 @@
+import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
 function Hero() {
+  const [scrolled, setScrolled] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY);
+    };
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 1600) {
+        setScrolled(window.scrollY)
+      }
+    });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className={styles.hero}>
-      <div className="container grid">
+      <div
+        className="container grid"
+        style={{ opacity: `${1 - (scrolled / 1600).toFixed(2)}` }}
+      >
         <div className={`${styles.img1} ${styles.imgContainer}`}>
           <img
             className={styles.img}
@@ -26,8 +45,15 @@ function Hero() {
           />
           <input type="text" placeholder="Search meal by name" />
         </div>
-        <h1 className={styles.welcomeText}>Welcome to the Meal<br /> Search Tool</h1>
-        <p className={styles.welcomeSubText}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi fuga fugiat harum. Cupiditate doloribus neque adipisci quas voluptatibus cumque explicabo.</p>
+        <h1 className={styles.welcomeText}>
+          Welcome to the Meal
+          <br /> Search Tool
+        </h1>
+        <p className={styles.welcomeSubText}>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi fuga
+          fugiat harum. Cupiditate doloribus neque adipisci quas voluptatibus
+          cumque explicabo.
+        </p>
         <div className={`${styles.img3} ${styles.imgContainer}`}>
           <img
             className={styles.img}
