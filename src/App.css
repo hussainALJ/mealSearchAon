@@ -1,5 +1,22 @@
 .container {
-  max-width: 1000px;
-  padding: 20px;
+  max-width: 1400px;
+  padding: 30px 20px;
   margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  gap: 10px;
+  height: 100vh;
+}
+
+.searchBar {
+  background-color: white;
+  padding: 15px;
+  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
