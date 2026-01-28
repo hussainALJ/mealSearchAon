@@ -1,12 +1,19 @@
-import { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import Tags from "../../components/tags/Tags.jsx";
 
 function Header() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end end"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
   return (
-    <motion.header 
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
+    <motion.header
+      ref={ref} 
+      style={{ y, opacity , position: 'unset'}}
     >
       <div className={`searchBar`}>
         <img
