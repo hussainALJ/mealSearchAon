@@ -1,0 +1,7 @@
+.hero {
+    background-color: #121212;
+    width: -webkit-fill-available;
+    height: 100vh;
+    position: fixed;
+    color: white;
+}
