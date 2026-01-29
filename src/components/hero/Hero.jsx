@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
+import SearchBar from "../SearchBar.jsx";
 
 function Hero() {
   const [scrolled, setScrolled] = useState(0);
@@ -37,14 +38,15 @@ function Hero() {
             alt=""
           />
         </div>
-        <div className={`${styles.searchBar} searchBar`}>
+        <SearchBar style={styles.searchBar}/>
+        {/* <div className={`${styles.searchBar} searchBar`}>
           <img
             src="/search-icon.svg"
             alt=""
             style={{ width: "32px", height: "32px" }}
           />
           <input type="text" placeholder="Search meal by name" />
-        </div>
+        </div> */}
         <h1 className={styles.welcomeText}>
           Welcome to the Meal
           <br /> Search Tool

@@ -12,11 +12,24 @@
   height: 100vh;
 }
 
+
+.flex {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  overflow: auto;
+}
+
 .searchBar {
   background-color: white;
+  color: black;
   padding: 15px;
   border-radius: 45px;
   display: flex;
-  align-items: center;
-  gap: 15px;
+  flex-direction: column;
+}
+
+.predictions {
+  overflow: auto;
+  max-height: 200px;
 }

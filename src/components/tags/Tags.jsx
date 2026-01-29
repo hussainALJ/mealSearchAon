@@ -9,9 +9,9 @@ function Tags() {
       const response = await fetch(
         `https://www.themealdb.com/api/json/v1/1/categories.php`,
       );
-      const categories = await response.json();
       if (!response.ok)
         throw new Error("failed to fetch categories:", response);
+      const categories = await response.json();
       setTags(categories.categories);
     } catch (error) {
         console.log(error.message)
@@ -26,7 +26,7 @@ function Tags() {
 
   return (
     <>
-      <div>
+      <div className="flex">
         {tags.map((tag) => (
           <div
             key={tag.idCategory}

@@ -7,8 +7,11 @@
 }
 
 .searchBar {
-  grid-column: 1 / 21;
-  grid-row: 8;
+  position: absolute;
+  transform: translate(-50%, 0%);
+  top: 47%;
+  left: 50%;
+  width: 20rem;
 }
 
 .welcomeText {
@@ -64,8 +67,7 @@
   }
 
   .searchBar {
-    grid-column: 5 / 17;
-    grid-row: 8;
+    width: 35rem;
   }
 
   .img1 {
