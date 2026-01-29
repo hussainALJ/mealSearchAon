@@ -6,11 +6,8 @@ function CardsContainer() {
   const [results, setResults] = useState([]);
   const [searchFor, setSearchFor] = useState("");
   const [category, setCategory] = useState("");
-  const [selectedCard, setSelectedCard] = useState(null);
 
   const handleCardClick = (card) => {
-    setSelectedCard(card);
-    console.log("Card clicked:", card.idMeal);
     document.dispatchEvent(new CustomEvent("cardClick", { detail: { card } }));
   };
 
@@ -89,12 +86,11 @@ function CardsContainer() {
           <>
             <h2 className={styles.mealsH}>
               {category
-                ? `Category: "${category}"`
+                ? (searchFor) ? `Results for "${searchFor}" in "${category}" category`: `Meals in "${category}" category` 
                 : `Results for "${searchFor}"`}
             </h2>
             <div
               className={styles.grid}
-              style={{ gridTemplateColumns: "repeat(4, 1fr)" }}
             >
               {results.map((card) => {
                 return (
