@@ -1,4 +1,5 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react";
+import CardDetails from "./components/cards/CardDetails.jsx";
 import Home from "./pages/home/Home.jsx";
 import "./App.css";
 

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import styles from './Tags.module.css';
 
 function Tags() {
     const [tags, setTags] = useState([])
-
+    const [activeTag, setActiveTag] = useState("");
 
   const fetchCategories = async () => {
     try {
@@ -23,27 +24,24 @@ function Tags() {
         fetchCategories();
     }, [])
 
+    const handleClick = (category) => {
+      const next = activeTag === category ? "" : category;
+      setActiveTag(next);
+      document.dispatchEvent(new CustomEvent('categoryFilter', { detail: { category: next } }));
+    };
 
   return (
-    <>
-      <div className="flex">
-        {tags.map((tag) => (
-          <div
-            key={tag.idCategory}
-            onClick={(e) => {
-              const element = e.target.closest("div");
-              if (element.className.includes("active")) {
-                element.className = "";
-              } else {
-                element.className = "active";
-              }
-            }}
-          >
-            <p>{tag.strCategory}</p>
-          </div>
-        ))}
-      </div>
-    </>
+    <div className={styles.tags}>
+      {tags.map((tag) => (
+        <div
+          key={tag.idCategory}
+          className={`${styles.tag} ${activeTag === tag.strCategory ? styles.active : ''}`}
+          onClick={() => handleClick(tag.strCategory)}
+        >
+          <p>{tag.strCategory}</p>
+        </div>
+      ))}
+    </div>
   );
 }
 

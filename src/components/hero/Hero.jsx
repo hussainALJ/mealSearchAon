@@ -12,7 +12,7 @@ function Hero() {
 
     window.addEventListener("scroll", () => {
       if (window.scrollY < 1600) {
-        setScrolled(window.scrollY)
+        setScrolled(window.scrollY);
       }
     });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -22,7 +22,11 @@ function Hero() {
     <section className={styles.hero}>
       <div
         className="container grid"
-        style={{ opacity: `${1 - (scrolled / 1600).toFixed(2)}` }}
+        style={{
+          opacity: `${1 - (scrolled / 1600).toFixed(2)}`,
+          gridTemplateColumns: "repeat(20, 1fr)",
+          gridTemplateRows: "repeat(15, 1fr)",
+        }}
       >
         <div className={`${styles.img1} ${styles.imgContainer}`}>
           <img
@@ -38,15 +42,7 @@ function Hero() {
             alt=""
           />
         </div>
-        <SearchBar style={styles.searchBar}/>
-        {/* <div className={`${styles.searchBar} searchBar`}>
-          <img
-            src="/search-icon.svg"
-            alt=""
-            style={{ width: "32px", height: "32px" }}
-          />
-          <input type="text" placeholder="Search meal by name" />
-        </div> */}
+        <SearchBar style={styles.searchBar} />
         <h1 className={styles.welcomeText}>
           Welcome to the Meal
           <br /> Search Tool

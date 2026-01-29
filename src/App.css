@@ -6,8 +6,6 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  grid-template-rows: repeat(15, 1fr);
   gap: 10px;
   height: 100vh;
 }

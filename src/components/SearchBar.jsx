@@ -1,4 +1,3 @@
-import { p } from "framer-motion/client";
 import { useEffect, useState } from "react";
 
 function SearchBar(style) {
@@ -41,12 +40,18 @@ function SearchBar(style) {
               setSearchInput(e.target.value);
             }}
             onKeyDown={(e) => {
-              if (e.key === "Enter")
-                window.scrollTo({
-                  top: 900,
-                  left: 0,
-                  behavior: "smooth",
-                });
+                if (e.key === "Enter"){
+                  const searchEvent = new CustomEvent("search", {
+                    bubbles: true,
+                    detail: { searchInput },
+                  });
+                  document.dispatchEvent(searchEvent);
+                  window.scrollTo({
+                    top: 900,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+              }
             }}
           />
         </div>
