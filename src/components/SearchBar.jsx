@@ -1,3 +1,4 @@
+import { input } from "framer-motion/client";
 import { useEffect, useState } from "react";
 
 function SearchBar(style) {
@@ -51,11 +52,13 @@ function SearchBar(style) {
             type="text"
             placeholder="Search meal by name"
             value={searchInput}
+            enterKeyHint="go"
             onChange={(e) => {
               setSearchInput(e.target.value);
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
+                input.value = e.key
                 const searchEvent = new CustomEvent("search", {
                   bubbles: true,
                   detail: { searchInput },
