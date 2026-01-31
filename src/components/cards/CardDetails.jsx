@@ -14,6 +14,7 @@ function CardDetails({ card, onClose }) {
         measure: measure || "",
         image: `https://www.themealdb.com/images/ingredients/${ingredient}-Small.png`,
       });
+      document.body.style.overflow = "hidden";
     }
   }
 

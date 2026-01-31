@@ -18,7 +18,10 @@ function Meals() {
       <div className="container">
         <Header />
         <CardsContainer />
-        <CardDetails card={selectedCard} onClose={() => setSelectedCard(null)} />
+        <CardDetails card={selectedCard} onClose={() => {
+          setSelectedCard(null)
+          document.body.style.overflow = "auto"
+          }} />
       </div>
     </section>
   );

@@ -51,11 +51,12 @@
 
 .cardDetails {
   position: relative;
-  top: 20%;
+  top: 18%;
   left: 50%;
   transform: translate(-50%, 0%);
   width: fit-content;
   max-width: 500px;
+  max-height: 650px;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -96,9 +97,9 @@
 .instructions {
     font-size: 18px;
     margin-top: 10px;
-    max-height: 280px;
+    max-height: 200px;
     overflow: auto;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .closeBtn {
