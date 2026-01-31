@@ -56,7 +56,7 @@
   transform: translate(-50%, 0%);
   width: fit-content;
   max-width: 500px;
-  max-height: 650px;
+  max-height: 600px;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -65,10 +65,7 @@
 
 .detailsImgContainer {
   margin-top: -150px;
-  display: grid;
-  grid-template-columns: repeat(4, 60px);
-  grid-template-rows: repeat(auto-fit, 60px);
-  gap: 10px;
+  display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
@@ -82,27 +79,38 @@
   grid-row: 1 / 5;
 }
 
+.details {
+  overflow: auto;
+  max-height: 440px;
+}
+
+.ingredients {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(auto-fit, 100px);
+}
+
 .ingredient {
-    font-family: serif;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  font-family: serif;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .info {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .instructions {
-    font-size: 18px;
-    margin-top: 10px;
-    max-height: 200px;
-    overflow: auto;
-    margin-bottom: 15px;
+  font-size: 18px;
+  margin-top: 10px;
+  overflow: auto;
+  margin-bottom: 15px;
 }
 
 .closeBtn {
+  margin-top: 15px;
   padding: 6px 12px;
   background: #f0f0f0;
   border-radius: 20px;

@@ -27,27 +27,31 @@ function CardDetails({ card, onClose }) {
               src={card.strMealThumb}
               alt={card.strMeal}
             />
-          {ingredients.map((ing, idx) => (
-            <div key={idx} className={styles.ingredient}>
-              <img src={ing.image} alt={ing.name} style={{ width: "50px", height: "50px" }} />
-              <p>{ing.measure}</p>
-              <p>{ing.name}</p>
+          </div>
+          <div className={styles.details}>
+            <div className={styles.ingredients}>
+              {ingredients.map((ing, idx) => (
+                <div key={idx} className={styles.ingredient}>
+                  <img src={ing.image} alt={ing.name} style={{ width: "50px", height: "50px" }} />
+                  <p>{ing.measure}</p>
+                  <p>{ing.name}</p>
+                </div>
+              ))}
             </div>
-          ))}
+            <h2 className={style.title}>{card.strMeal}</h2>
+            <div className={`${styles.info} flex`}>
+                <p>{card.strArea}</p>
+                <p>/</p>
+                <p>{card.strCategory}</p>
+            </div>
+            <hr />
+            <div className={styles.instructions}>
+                <p>{card.strInstructions}</p>
+            </div>
           </div>
-          <h2 className={style.title}>{card.strMeal}</h2>
-          <div className={`${styles.info} flex`}>
-              <p>{card.strArea}</p>
-              <p>/</p>
-              <p>{card.strCategory}</p>
-          </div>
-          <hr />
-          <div className={styles.instructions}>
-              <p>{card.strInstructions}</p>
-          </div>
-          <button onClick={onClose} className={styles.closeBtn}>
-            Close
-          </button>
+            <button onClick={onClose} className={styles.closeBtn}>
+              Close
+            </button>
         </div>
     </div>
   );
